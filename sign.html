@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="sign.css">
+    <title>Login</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="innercontent">
+            <div class="card">
+                <div class="inside">
+                    <div class="head">
+                        <img src="/img/R (1).png" alt="">
+                    </div>
+                    <div class="form">
+                        <h3>Login</h3>
+                        <form action="">
+
+                            <input type="text" name="" id="username" class="inp" placeholder="Username">
+                            <input type="password" name="" class="inp" id="pass" placeholder="Password">
+
+                            <div class="ch">
+                                <div class="r">
+                                    <input type="checkbox" class="chk" name="chk" id="">
+                                    <label for="chk">Remember Me</label>
+                                </div>
+                                <a href="">forgot password?</a>
+                            </div>
+
+                            <input type="submit" class="inp sub" value="Login">
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <script>
+
+
+
+     const userList = JSON.parse(localStorage.getItem('userList') )|| []
+
+        if(userList.length === 0){
+            const superuser = {
+            user_type: "1",
+            username: "superUser",
+            password: "00000",
+        };
+
+        userList.push(superuser);
+        alert('done')
+        window.localStorage.setItem("userList", JSON.stringify((userList)))
+        }
+
+        
+        let form = document.querySelector("form");
+
+        form.addEventListener("submit", (e) => {
+            e.preventDefault();
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("pass").value;
+
+            const user = {
+                username: username,
+                password: password,
+            };
+
+            
+            let r
+            us = JSON.parse(localStorage.getItem("userList"));
+
+            us.forEach((element) => {
+                if (user.username === element.username && user.password === element.password) {
+                    r = element
+                }
+            });
+
+            if (typeof r != "undefined") {
+                console.log("user exists");
+                window.location.replace("/dashboard.html");
+            }
+            else {
+                window.location.reload()
+                alert("nope")
+            }
+        });
+
+    </script>
+</body>
+
+</html>

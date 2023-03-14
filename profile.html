@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="profile.css">
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.7/dist/iconify-icon.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400&family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <title>Profile</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="innercontent">
+            <nav>
+                <div class="content">
+                    <div class="logo">
+                        <img src="/img/R (1).png" alt="">
+                    </div>
+                    <div class="menu">
+                        <a href="" class="clicked"><iconify-icon icon="bi:grid" rotate="90deg"></iconify-icon></span><span>Dashboard</span></a>
+                        <a href=""><iconify-icon icon="fluent-mdl2:player-settings"></iconify-icon><span>Admins</span></a>
+                        <a href=""><iconify-icon icon="carbon:report"></iconify-icon><span>Reports</span></a>
+                        <a href=""><iconify-icon icon="fluent:settings-32-regular" rotate="90deg"></iconify-icon><span>Settings</span></a>
+                    </div>
+                </div>
+                <div class="logout-b">
+                    <a href=""><iconify-icon icon="material-symbols:output-circle-rounded" rotate="270deg"></iconify-icon><span>Logout</span></a>
+                </div>
+            </nav>
+            <div class="right-part">
+
+            </div>
+        </div>
+    </div>
+    <script>
+        d = localStorage.getItem('iconify')
+        console.log(d)
+    </script>
+</body>
+
+</html>
