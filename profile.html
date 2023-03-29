@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="profile.css">
+    <link rel="stylesheet" href="sidebar.css">
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.7/dist/iconify-icon.min.js"></script>
@@ -18,6 +19,9 @@
 </head>
 
 <body>
+    <style type="text/css" media="print">
+        body { visibility: hidden; display: none }
+    </style>
     <div class="container">
         <div class="innercontent">
             <nav>
@@ -26,24 +30,238 @@
                         <img src="/img/R (1).png" alt="">
                     </div>
                     <div class="menu">
-                        <a href="" class="clicked"><iconify-icon icon="bi:grid" rotate="90deg"></iconify-icon></span><span>Dashboard</span></a>
-                        <a href=""><iconify-icon icon="fluent-mdl2:player-settings"></iconify-icon><span>Admins</span></a>
+                        <a href="dashboard.html" class="clicked"><iconify-icon icon="bi:grid"
+                                rotate="90deg"></iconify-icon></span><span>Dashboard</span></a>
+                        <a href=""><iconify-icon
+                                icon="fluent-mdl2:player-settings"></iconify-icon><span>Admins</span></a>
                         <a href=""><iconify-icon icon="carbon:report"></iconify-icon><span>Reports</span></a>
-                        <a href=""><iconify-icon icon="fluent:settings-32-regular" rotate="90deg"></iconify-icon><span>Settings</span></a>
+                        <a href=""><iconify-icon icon="fluent:settings-32-regular"
+                                rotate="90deg"></iconify-icon><span>Settings</span></a>
                     </div>
                 </div>
                 <div class="logout-b">
-                    <a href=""><iconify-icon icon="material-symbols:output-circle-rounded" rotate="270deg"></iconify-icon><span>Logout</span></a>
+                    <a href="sign.html"><iconify-icon icon="material-symbols:output-circle-rounded"
+                            rotate="270deg"></iconify-icon><span>Logout</span></a>
                 </div>
             </nav>
-            <div class="right-part">
 
+            <div class="right-part">
+                <div class="details">
+
+                    <div class="return">
+                        <a href="dashboard.html">
+                            <iconify-icon icon="octicon:arrow-left-24"></iconify-icon>
+                        </a>
+                    </div>
+
+                    <div class="per-details">
+
+                        <div class="user-p">
+                            <span>
+                                <iconify-icon icon="ph:user-light"></iconify-icon>
+                            </span>
+                        </div>
+
+                        <div class="user-name">
+                            <span>Naima dullard</span>
+                        </div>
+
+                        <div class="emp-details">
+                            <span class="title">
+                                Employee details
+                                <iconify-icon icon="circum:edit" onclick="openForm()"></iconify-icon>
+                            </span>
+                            <div class="detail-list">
+                                <div class="l">
+                                    <span class="tit">Number</span>
+                                    <span class="ans">+225 06 777 788 04</span>
+                                </div>
+                                <div class="l">
+                                    <span class="tit">Date of birth</span>
+                                    <span class="ans">+225 06 777 788 04</span>
+                                </div>
+                                <div class="l">
+                                    <span class="tit">location</span>
+                                    <span class="ans">+225 06 777 788 04</span>
+                                </div>
+                                <div class="l">
+                                    <span class="tit">Responsiblity</span>
+                                    <span class="ans">+225 06 777 788 04</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="notes">
+                        <div class="in">
+                            <span class="t">
+                                Notes <iconify-icon icon="ph:plus-light"></iconify-icon>
+                            </span>
+                            <textarea name="" id="" cols="10" rows="10"></textarea>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="task-List">
+                    <div class="option-line">
+                        <button class="task" onclick="swapTask()">Tasks</button>
+                        <button class="pay" onclick="swapPayment()">payment</button>
+                    </div>
+                    <div class="inner-content">
+                        <div class="tasks" id="tasks">
+                            <h3>Daily tasks</h3>
+                            <div class="card">
+                                <div class="list">
+                                    <div class="elmnt">
+                                        <input type="checkbox" class="chk" name="" id="">
+                                        <span class="task-name">fhgvhbfvdubjvufjvdf vdughvjf</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="payment" id="payment">
+
+                        </div>
+                    </div>
+                    <div class="add-button">
+                        <span class="plus" onclick="openAdd()"><iconify-icon icon="ph:plus-thin"></iconify-icon></span>
+                    </div>
+                </div>
             </div>
         </div>
+
+
+        <div id="myForm" class="form-popup">
+            <div class="form-container">
+                <div class="form-builder">
+                   
+                    <div class="conten">
+                        <iconify-icon icon="akar-icons:cross" onclick="closeForm()"></iconify-icon>
+
+                        <form class="form">
+                            <div class="line">
+                                <div class="inputBox half">
+                                    <input type="text" name="" id="" required>
+                                    <span>First Name</span>
+                                </div>
+                                <div class="inputBox half">
+                                    <input type="text" name="" id="" required>
+                                    <span>Last Name</span>
+                                </div>
+                            </div>
+
+                            <div class="inputBox date">
+                                <input type="date" name="" id="" required>
+                                <span>date of birth</span>
+                            </div>
+                            <div class="inputBox num">
+                                <input type="text" name="" id="number" required>
+                                <span>Number</span>
+                            </div>
+
+                            <div class="inputBox d">
+                                <select name="" id="" aria-placeholder="Location" required>
+                                    <option value="" disabled selected>Responsiblity</option>
+                                    <option value="">On Ground manager</option>
+                                    <option value="">farmer</option>
+                                    <option value="">Ranch holder</option>
+                                    <option value="">Farm Irigation</option>
+                                    <option value="">Machinery</option>
+                                    <option value="">food safety</option>
+                                </select>
+                                <span>Responsiblity</span>
+                            </div>
+
+                            <div class="inputBox d">
+                                <select name="" id="" aria-placeholder="Location" required>
+                                    <option value="" disabled selected>Location</option>
+                                    <option value="">Abidjan</option>
+                                    <option value="">Yamoussoukro</option>
+                                    <option value="">Bouaké</option>
+                                    <option value="">Korhogo</option>
+                                    <option value="">Odiénné</option>
+                                    <option value="">Man</option>
+                                </select>
+                                <span>Location</span>
+                            </div>
+
+                            <input class="btn" type="submit" value="Modify">
+                        </form>
+                    </div>
+                    
+                </div>
+
+            </div>
+    </div>
+        <div id="my-add-Form" class="form-popup">
+            <div class="form-container">
+                <div class="form-builder">
+                   
+                    <div class="conten">
+                        <iconify-icon icon="akar-icons:cross" onclick="closeAdd()"></iconify-icon>
+                        <iconify-icon class="task-icon" icon="material-symbols:task-alt-rounded"></iconify-icon>
+
+                        <form class="form">
+                            <div class="inputBox">
+                                <input type="text" name="" id="task-name" required>
+                                <span>Task Name</span>
+                            </div>
+                            <div class="inputBox">
+                                <!-- <input type="text" class="desc" name="" id="task-desc" required> -->
+                                <textarea class="desc" name="" id="" cols="10" rows="10" required></textarea>
+                                <span>Task Description</span>
+                            </div>
+
+                            <input class="btn" type="submit" value="Add task">
+                        </form>
+                    </div>
+                    
+                </div>
+
+            </div>
     </div>
     <script>
-        d = localStorage.getItem('iconify')
-        console.log(d)
+
+        pay = document.getElementById('payment')
+        task = document.getElementById('tasks')
+        add = document.querySelector('.add-button')
+        b1= document.querySelector('.task')
+        b2 = document.querySelector('.pay')
+        function swapPayment() {
+            task.style.display = 'none'
+            add.style.display = 'none'
+            pay.style.display = 'flex';
+            b2.style.background = '#B4CD93'
+            b1.style.background = 'transparent'
+        }
+        function swapTask() {
+            pay.style.display = 'none'
+            task.style.display = 'flex'
+            add.style.display = 'flex'
+            b1.style.background = '#B4CD93'
+            b2.style.background = 'transparent'
+
+        }
+
+          /* Open the form */
+          function openForm() {
+            document.getElementById("myForm").style.display = "block";
+        }
+          function openAdd() {
+            document.getElementById("my-add-Form").style.display = "block";
+        }
+
+        /* Close the form */
+        function closeForm() {
+            document.getElementById("myForm").style.display = "none";
+        }
+        function closeAdd() {
+            document.getElementById("my-add-Form").style.display = "none";
+        }
+
     </script>
 </body>
 

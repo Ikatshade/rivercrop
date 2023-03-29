@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400&family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Mulish:wght@200;300;400;500;600;700;800;900;1000&family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
 *{
     text-decoration: none;
 }
@@ -17,77 +19,452 @@ body{
     display: flex;
     width: 100%;
     height: 100%;
-    background-color: aquamarine;
-}
-nav{
-    display: flex;
     align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    background-color: #F2F2F2;
-    height: 100%;
-    width: 20vw;
-    nav-left: root;
-    font-size: 1.4rem;
-    font-family: 'manrope';
-
 }
-.content{
-    flex-basis: 55%;
+.right-part{
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    width: 75%;
+    width: 81%;
+    height: 100%;
 }
-.logo{
-
-    flex-basis: 20%;
-}
-.menu{
-    flex-basis: 35%;
+.details{
+    font-family: 'poppins';
     display: flex;
+    gap: 1%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-basis: 32.5%;
+    height: 100%;
+    background-color:#FCFCFC ;
+}
+.return{
+    display: flex;
+    align-items: end;
+    flex-basis: 7%;
+    width: 90%;
+}
+.return a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 3rem;
+    width: 3rem;
+    background-color: #B4CD93;
+    border-radius: 50%;
+}
+.return iconify-icon{
+    font-size: 2rem;
+    color: #427A5B;
+}
+.user-p{
+    display: flex;
+    justify-content: center;
+}
+.user-p span{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 10rem;
+    height: 10rem;
+    font-size: 5rem;
+    border-radius: 2rem;
+    color: #4c4c4c;
+    background-color: #D9D9D9;
+}
+.per-details{
+    display: flex;
+    width: 80%;
+    justify-content: center;
+    align-items: center;
+    gap: 6%;
+    flex-direction: column;
+    flex-basis: 65%;
+}
+.emp-details{
+    display: flex;
+    width: 80%;
+    flex-direction: column;
+    flex-basis: 32%;
+
+}
+.detail-list{
+    display: flex;
+    flex-direction: column;
+    gap: .9rem;
+}
+.l{
+    display: grid;
+    grid-template-columns: 50% auto; 
+}
+.title{
+    display: flex;
+    align-items: center;
+    gap: .7rem;
+    flex-basis: 50%;
+    font-size: 1.3rem;
+    font-weight: 500;
+}
+.title iconify-icon{
+    font-size: 1.7rem;
+}
+.ans{
+    flex-basis: 50%;
+    color: #427A5B;
+}
+.user-name span{
+    font-size: 3rem;
+    font-family: 'poppins';
+    font-weight: 700;
+    text-transform: capitalize;
+}
+.notes{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-basis: 28%;
+    width: 65%;
+}
+.t{
+    display: flex;
+    align-items: center;
+    width: 70%;
+    gap: .5rem;
+    font-size: 1.3rem;
+    font-weight: 500;
+}
+.in{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 80%;
+}
+textarea{
+    height: 85%;
+    width: 90%;
+    border: none;
+    border-radius: .7rem;
+    background-color: #F2F2F2;
+    padding: .8rem;
+    outline: none;
+    font-family: 'poppins';
+}
+.task-List{
+    flex-basis: 67.5%;
+    display: flex;
+    height: 85%;
+    gap: 3%;
+    align-items: center;
+    flex-direction: column;
+}
+.option-line{
+    display: flex;
+    width: 80%;
+    justify-content: center;
+    align-items: center;
+    flex-basis: 7%;
+    gap: 4%;
+}
+button{
+    background-color: transparent;
+    border: none;
+    font-family: 'montserrat';
+    text-transform: capitalize;
+    font-size: 1.1rem;
+    border-radius: .8rem;
+    height: 70%;
+    color: #427A5B;
+}
+.task{
+    background-color: #B4CD93;
+}
+.inner-content{
+    width: 80%;
+    flex-basis: 80%;
+}
+.add-button{
+    display: flex;
+    width: 90%;
+    justify-content: flex-end;
+    flex-basis: 7%;
+}
+.add-button span{
+    display: flex;
+    height: 5rem;
+    width: 5rem;
+    align-items: center;
+    justify-content: center;
+    background-color: #FF896B;
+    color: #ffffff;
+    border-radius: 50%;
+    font-size: 3rem;
+}
+.payment{
+    display: none;
+    width: 100%;
+    height: 100%;
+}
+.tasks{
+
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+.card{
+    display: flex;
+    justify-content: center;
+    width: 100%; 
+    height: 100%;
+    max-height: 40rem;
+    border-radius: .5rem;
+    background-color: #F5F5F5;
+
+}
+.list{
+    padding-top: .5rem;
+    display: flex;
+    align-items: center;
+    width: 95%;
+    border-radius: .5rem;
+    gap: .5rem;
+    flex-direction: column;
+}
+.chk{
+    accent-color: #427A5B;
+    width: 1.3rem;
+    height: 1.3rem;
+}
+
+h3{
+    font-family: 'montserrat';
+    font-size: 2rem;
+    font-weight: 600;
+    margin-left: 5%;
+}
+.elmnt{
+    font-size: 1.3rem;
+    font-family: 'montserrat';
+    display: flex;
+    align-items: center;
+    background-color: white;
+    padding: .7rem;
+    width: 100%;
+    height: 1.5rem;
+    gap: 1rem;
+}
+input[type="checkbox"] + span{
+    /* transition: .5s;
+    text-decoration: line-through;
+    text-decoration-color: transparent;
+    text-decoration-thickness: 1.5px; */
+    --thickness: .06rem;
+  --strike: 0;
+  
+  background: linear-gradient(90deg, transparent, currentColor 0) no-repeat 
+              right center / calc(var(--strike) * 100%) var(--thickness);
+
+  transition: background-size .4s ease;
+
+}
+input[type="checkbox"]:checked + span{
+    /* text-decoration-color: black;
+    transform: translate3d(0, 0, 0) */
+    --strike: 1; /* "1" means "true" (show the strike line) */
+    background-position-x: left;
+  }
+
+/* Popup container */
+.form-popup {
+    display: none;
+    font-family: 'mulish';
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Popup form */
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.form-builder {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #fefefe;
+    border: 1px solid #888;
+    width: 100%;
+    height: 65%;
+    max-width: 570px;
+    border-radius: 1rem;
+}
+
+.conten iconify-icon {
+    flex-basis: 10%;
+    font-size: 2rem;
+    width: 100%;
+}
+
+.conten{
+    display: flex;
+    width: 80%;
+    height: 90%;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+
+    
+}
+
+.form {
+    display: flex;
+    align-items: center;
     justify-content: center;
     flex-direction: column;
-    gap: .5rem;
-    width: 95%;
+    gap: 2rem;
+    height: 80%;
+    width: 90%;
 }
-.menu a{
-    color: #4C4C4C;
+
+.line {
     display: flex;
+    width: 100%;
+    justify-content: space-between;
     align-items: center;
-    gap: .8rem;
-    padding: 1rem 4rem;
+    object-fit: contain;
 }
-.menu a:hover{
-    background-color: #B4CD93;
-    border-radius: .3rem;
+
+.half {
+    flex-basis: 48%;
 }
-.clicked{
-    background-color: #B4CD93;
-    border-radius: .3rem;
-}
-.menu a iconify-icon{
-    font-size: 1.9rem;
-}
-.logout-b a iconify-icon{
-    font-size: 1.9rem;
-}
-.logout-b a{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: .8rem;
-    color: red;
-}
-.logout-b {
-    width: 75%;
-    background-color: cadetblue;
-    flex-basis: 40%;
-    display: flex;
-    justify-content: center;
+.half input{
+    padding:.9rem .4rem !important;
 
 }
-img{
-    width: 9vw;
+
+.inputBox {
+    position: relative;
+    width: 100%;
+}
+
+.inputBox input {
+    width: 93%;
+    padding: .9rem;
+    border: 1px solid #427A5B;
+    border-radius: .25rem;
+    font-size: 1rem;
+    outline: none;
+}
+
+.inputBox select {
+    width: 100% !important;
+    padding: .9rem;
+    outline: none;
+    border: 1px solid #427A5B;
+    border-radius: .25rem;
+    font-size: 1rem;
+
+}
+
+.inputBox span {
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 1rem;
+    color: #666666;
+    transition: .5s;
+    text-transform: capitalize;
+    font-size: 1rem;
+    pointer-events: none;
+
+}
+
+.date span {
+    color: transparent;
+}
+
+.d span {
+    color: transparent;
+}
+.desc{
+    width: 93%;
+    padding: .9rem;
+    height: 10rem;
+    border: 1px solid #427A5B;
+    border-radius: .25rem;
+    background-color: transparent;
+    font-size: 1rem;
+    outline: none;
+}
+.task-icon{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    color: #427A5B;
+}
+.conten .task-icon{
+    font-size: 4.2rem;
+}
+
+.inputBox textarea:valid~span,
+.inputBox textarea:focus~span{
+    color: #427A5B;
+    transform: translateX(10px) translateY(-7px);
+    font-size: 0.65em;
+    padding: 0 10px;
+    background-color: #FFF;
+    letter-spacing: .2em;
+}
+
+.inputBox input:valid~span,
+.inputBox input:focus~span {
+    color: #427A5B;
+    transform: translateX(10px) translateY(-7px);
+    font-size: 0.65em;
+    padding: 0 10px;
+    background-color: #FFF;
+    letter-spacing: .2em;
+}
+
+.inputBox select:valid~span,
+.inputBox select:focus~span {
+    color: #427A5B;
+    transform: translateX(10px) translateY(-7px);
+    font-size: 0.65em;
+    padding: 0 10px;
+    background-color: #FFF;
+    letter-spacing: .2em;
+}
+
+select{
+    color: #666666;
+    text-transform: capitalize;
+    font-family: 'mulish';
+}
+
+/* Add styles to the form container when it's open */
+.form-container.open {
+    display: flex;
+}
+.btn{
+    width: 100%;
+    border-radius: .25rem;
+    background-color: #314E3E;
+    color: #ffffff;
+    font-size: 1rem;
+    font-family: 'mulish';
+    text-transform: capitalize;
+    border: none;
+    padding: .9rem;
 }

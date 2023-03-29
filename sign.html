@@ -50,6 +50,7 @@
 
      const userList = JSON.parse(localStorage.getItem('userList') )|| []
 
+
         if(userList.length === 0){
             const superuser = {
             user_type: "1",
@@ -87,6 +88,14 @@
 
             if (typeof r != "undefined") {
                 console.log("user exists");
+
+                const session  = {
+                    user_type: r.user_type,
+                    username: r.username,
+                    password: r.password,
+                }
+
+                localStorage.setItem("session", JSON.stringify((session)))
                 window.location.replace("/dashboard.html");
             }
             else {

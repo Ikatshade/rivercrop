@@ -1,12 +1,308 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="sidebar.css">
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.7/dist/iconify-icon.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400&family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
     <title>Dashboard</title>
 </head>
+
 <body>
-    
+    <div class="container">
+        <div class="innercontent">
+
+
+            <nav>
+                <div class="content">
+                    <div class="logo">
+                        <img src="/img/R (1).png" alt="">
+                    </div>
+                    <div class="menu">
+                        <a href="dashboard.html" class="clicked"><iconify-icon icon="bi:grid"
+                                rotate="90deg"></iconify-icon></span><span>Dashboard</span></a>
+                        <a href="admin.html" id="admin"><iconify-icon
+                                icon="fluent-mdl2:player-settings"></iconify-icon><span>Admins</span></a>
+                        <a href="report.html"><iconify-icon icon="carbon:report"></iconify-icon><span>Reports</span></a>
+                        <a href="settings.html"><iconify-icon icon="fluent:settings-32-regular"
+                                rotate="90deg"></iconify-icon><span>Settings</span></a>
+                    </div>
+                </div>
+                <div class="logout-b">
+                    <a href="sign.html" onclick="signout()"><iconify-icon icon="material-symbols:output-circle-rounded"
+                            rotate="270deg"></iconify-icon><span>Logout</span></a>
+                </div>
+            </nav>
+
+
+            <div class="right-part">
+                <div class="upper">
+                    <span class="search">
+                        <iconify-icon icon="iconoir:search"></iconify-icon>
+                        <input type="text" name="" id="" placeholder="Search Employee, Admin">
+                    </span>
+                    <div class="profile">
+                        <div class="user-details">
+                            <span class="user"><iconify-icon icon="ph:user-light"></iconify-icon></span>
+                            <div class="details">
+                                <span class="name">Karim</span>
+                                <span class="prof">Super Admin</span>
+                            </div>
+                        </div>
+                        <span class="notif"><iconify-icon icon="ion:notifications-outline"></iconify-icon></span>
+                    </div>
+                </div>
+
+                <div class="records">
+                    <div class="col"><span class="number">34</span> <span class="desc">Presents</span></div>
+                    <div class="col"><span class="number">34</span> <span class="desc">Presents</span></div>
+                    <div class="col"><span class="number">34</span> <span class="desc">Presents</span></div>
+                </div>
+
+                <div class="table-part">
+                    <div class="filterline">
+                        <div class="t">
+                            <span class="title">All Employees</span>
+                            <span class="exp">Monitor tasks, presence, etc.</span>
+                        </div>
+                        <div class="left">
+                            <button id="add-b" onclick="openForm()"><iconify-icon
+                                    icon="ph:plus-light"></iconify-icon>add
+                                employee</button>
+                            <span class="search s">
+                                <iconify-icon icon="iconoir:search"></iconify-icon>
+                                <input type="text" name="" id="" placeholder="Search Employee, Admin">
+                            </span>
+                            <button class="fi">filter</button>
+                        </div>
+                    </div>
+                    <div class="table" id="table">
+                        <table>
+                            <thead>
+                                <tr class="h">
+                                    <th width="25%">Employee</th>
+                                    <th width="15%">Status</th>
+                                    <th width="30%">Carried Out</th>
+                                    <th width="15%">Task Number</th>
+                                    <th width="15%">Salary</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="table-body"></tbody>
+
+
+                        </table>
+                    </div>
+                </div>
+
+
+
+                <div id="myForm" class="form-popup">
+                    <div class="form-container">
+                        <div class="form-builder">
+
+                            <div class="conten">
+                                <iconify-icon icon="akar-icons:cross" onclick="closeForm()"></iconify-icon>
+
+                                <form class="form" onsubmit="addemp()">
+                                    <div class="line">
+                                        <div class="inputBox half">
+                                            <input type="text" name="" id="fname" required>
+                                            <span>First Name</span>
+                                        </div>
+                                        <div class="inputBox half">
+                                            <input type="text" name="" id="lname" required>
+                                            <span>Last Name</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="inputBox date">
+                                        <input type="date" name="" id="birth" required>
+                                        <span>date of birth</span>
+                                    </div>
+                                    <div class="inputBox num">
+                                        <input type="text" name="" id="number" required>
+                                        <div class="code"> <span>+225</span></div>
+                                        <span>Number</span>
+                                    </div>
+
+                                    <div class="inputBox d">
+                                        <select name="" id="responsibility" aria-placeholder="Location" required>
+                                            <option value="" disabled selected>Responsiblity</option>
+                                            <option value="on ground manager">On Ground manager</option>
+                                            <option value="farmer">farmer</option>
+                                            <option value="ranch holder">Ranch holder</option>
+                                            <option value="farm irigation">Farm Irigation</option>
+                                            <option value="machinery">Machinery</option>
+                                            <option value="food safety">food safety</option>
+                                        </select>
+                                        <span>Responsiblity</span>
+                                    </div>
+
+                                    <div class="inputBox d">
+                                        <select name="" id="location" aria-placeholder="Location" required>
+                                            <option value="" disabled selected>Location</option>
+                                            <option value="abidjan">Abidjan</option>
+                                            <option value="yamoussoukro">Yamoussoukro</option>
+                                            <option value="bouaké">Bouaké</option>
+                                            <option value="korhogo">Korhogo</option>
+                                            <option value="odiéné">Odiénné</option>
+                                            <option value="man">Man</option>
+                                        </select>
+                                        <span>Location</span>
+                                    </div>
+
+                                    <input class="btn" type="submit" value="Add Employee">
+                                </form>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+    <script>
+        const phoneInputField = document.querySelector("#number");
+        // const phoneInput = window.intlTelInput(phoneInputField, {
+        //     initialCountry: "ci",
+
+        //     utilsScript:
+        //         "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+        // });
+
+
+        const currentuser = JSON.parse(localStorage.getItem('session'))
+        add = document.getElementById('add-b')
+        admin = document.getElementById('admin')
+
+        console.log(currentuser)
+
+
+        if (!(localStorage.hasOwnProperty('session'))) {
+            // if(!(currentuser in localStorage)){
+            window.location.replace("/sign.html")
+            alert('please entter your credentilas first')
+
+        }
+
+        else {
+
+
+            if (currentuser.user_type == "1") {
+                add.style.display = "none"
+
+            }
+            else {
+                admin.style.display = "none"
+            }
+
+
+        }
+        console.log(currentuser)
+
+        Array.prototype.random = function () {
+            return this[Math.floor((Math.random() * this.length))];
+        }
+
+        function randomPresence() {
+            lo = ["present", "late", "absent"]
+            return lo.random()
+        }
+
+        /* Open the form */
+        function openForm() {
+            document.getElementById("myForm").style.display = "block";
+        }
+
+        /* Close the form */
+        function closeForm() {
+            document.getElementById("myForm").style.display = "none";
+        }
+
+        function signout() {
+            localStorage.removeItem("session")
+        }
+
+        function getEmployee() {
+            return JSON.parse(localStorage.getItem('Employees')) || []
+        }
+        function setemp(object) {
+            old = JSON.parse(localStorage.getItem('Employees')) || []
+            old.push(object)
+            return localStorage.setItem('Employees', JSON.stringify((old)))
+        }
+
+        function addemp() {
+            let fname = document.getElementById("fname").value;
+            let lname = document.getElementById("lname").value;
+            let birth = document.getElementById("birth").value;
+            let number = document.getElementById("number").value;
+            let resp = document.getElementById("responsibility").value;
+            let loc = document.getElementById("location").value;
+
+            const employee = {
+                Firstname: fname,
+                Lastname: lname,
+                birthdate: birth,
+                number: number,
+                responsibility: resp,
+                location: loc,
+            }
+            emplist = getEmployee();
+            emplist.push(employee)
+            return localStorage.setItem('Employees', JSON.stringify((emplist)))
+        }
+
+
+        emplist = getEmployee()
+        print(emplist)
+        //        const table = document.getElementById("table-body");
+        //     emplist.map(employee=>{
+        //    let row = table.insertRow();
+        //    let name = row.insertCell(0);
+        //    name.innerHTML = course.Name;
+        //    let date = row.insertCell(1);
+        //    date.innerHTML = course.Date;
+        //    let code = row.insertCell(2);
+        //    code.innerHTML = course.Code;}); 
+        let table = document.getElementById('table-body');
+        emplist.forEach(function (object) {
+            var tr = document.createElement('tr');
+            tr.innerHTML = '<td  id ="name">' + object.Firstname + ' ' + object.Lastname + '</td>' +
+                '<td>' + randomPresence() + '</td>' +
+                '<td><div class="progress-bar-container"><div class="progress-bar"></div></div></td>' +
+                '<td>' + object.number + '</td>';
+            table.appendChild(tr);
+            tr.addEventListener("click",  function details() {
+                name = document.getElementById('name').textContent
+           em = emplist.find(e=> e.name === name)
+           emp = {
+            firstname: e.name
+           }
+           console.log(em)
+            window.location.replace("/profile.html")
+        }, false)
+
+        });
+
+    </script>
 </body>
+
 </html>
