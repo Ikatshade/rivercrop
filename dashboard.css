@@ -261,6 +261,7 @@ th,
 td {
 
     text-align: left;
+    text-transform: capitalize;
 }
 
 
@@ -434,7 +435,10 @@ select{
     background-color: #314E3E;
     color: #ffffff;
 }
-
+tr{
+    display: flex;
+    align-items: center;
+}
 @media print {
     html, body{ display:none !important; visibility: hidden !important; }
    
@@ -443,10 +447,11 @@ select{
 
 
 .progress-bar-container {
-    width: 100%;
-    height: 20px;
+    width: 75%;
+    height: .4rem;
+    border-radius: .5rem;
     background-color: #e0e0e0;
-    margin-bottom: 20px;
+
   }
   
   .progress-bar {

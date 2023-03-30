@@ -187,7 +187,6 @@
         //         "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
         // });
 
-
         const currentuser = JSON.parse(localStorage.getItem('session'))
         add = document.getElementById('add-b')
         admin = document.getElementById('admin')
@@ -240,13 +239,22 @@
             localStorage.removeItem("session")
         }
 
+
         function getEmployee() {
             return JSON.parse(localStorage.getItem('Employees')) || []
         }
-        function setemp(object) {
-            old = JSON.parse(localStorage.getItem('Employees')) || []
-            old.push(object)
-            return localStorage.setItem('Employees', JSON.stringify((old)))
+
+        function EmployeeId() {
+            let li = getEmployee()
+            let maxId = 0;
+
+            li.forEach(employee => {
+                if (employee.id > maxId) {
+                    maxId = employee.id;
+                }
+            });
+
+            return maxId + 1 || 1;
         }
 
         function addemp() {
@@ -258,47 +266,56 @@
             let loc = document.getElementById("location").value;
 
             const employee = {
+                id: EmployeeId(),
                 Firstname: fname,
                 Lastname: lname,
                 birthdate: birth,
                 number: number,
                 responsibility: resp,
                 location: loc,
+                tasks: []
             }
             emplist = getEmployee();
+            alert(emplist)
             emplist.push(employee)
-            return localStorage.setItem('Employees', JSON.stringify((emplist)))
+            localStorage.setItem('Employees', JSON.stringify((emplist)))
         }
+
 
 
         emplist = getEmployee()
         print(emplist)
-        //        const table = document.getElementById("table-body");
-        //     emplist.map(employee=>{
-        //    let row = table.insertRow();
-        //    let name = row.insertCell(0);
-        //    name.innerHTML = course.Name;
-        //    let date = row.insertCell(1);
-        //    date.innerHTML = course.Date;
-        //    let code = row.insertCell(2);
-        //    code.innerHTML = course.Code;}); 
+
         let table = document.getElementById('table-body');
         emplist.forEach(function (object) {
-            var tr = document.createElement('tr');
-            tr.innerHTML = '<td  id ="name">' + object.Firstname + ' ' + object.Lastname + '</td>' +
-                '<td>' + randomPresence() + '</td>' +
-                '<td><div class="progress-bar-container"><div class="progress-bar"></div></div></td>' +
-                '<td>' + object.number + '</td>';
+            let s
+                if (object.tasks.length === 0){
+                    s = 'no tasks available'
+                } else {
+                    s = object.tasks.length
+                }
+            let tr = document.createElement('tr');
+            tr.innerHTML = '<td width="25%" id ="name">' + object.Firstname + ' ' + object.Lastname + '</td>' +
+                '<td width="15%">' + randomPresence() + '</td>' +
+                '<td width="30%"><div class="progress-bar-container"><div class="progress-bar"></div></div></td>' +
+                '<td width="15%">' + s + '</td>';
+                '<td width="15%">' + object.tasks.length + '</td>';
             table.appendChild(tr);
-            tr.addEventListener("click",  function details() {
-                name = document.getElementById('name').textContent
-           em = emplist.find(e=> e.name === name)
-           emp = {
-            firstname: e.name
-           }
-           console.log(em)
-            window.location.replace("/profile.html")
-        }, false)
+            tr.addEventListener("click", function details() {
+                emp = {
+                    id: object.id,
+                    firstname: object.Firstname,
+                    Lastname: object.Lastname,
+                    birthdate: object.birthdate,
+                    number: object.number,
+                    responsibility: object.responsibility,
+                    location: object.location,
+                    tasks: object.tasks
+                }
+
+                localStorage.setItem("employee", JSON.stringify(emp))
+                window.location.replace("/profile.html")
+            }, false)
 
         });
 

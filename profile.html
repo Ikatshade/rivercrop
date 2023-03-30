@@ -74,19 +74,19 @@
                             <div class="detail-list">
                                 <div class="l">
                                     <span class="tit">Number</span>
-                                    <span class="ans">+225 06 777 788 04</span>
+                                    <span class="ans" id="num">+225 06 777 788 04</span>
                                 </div>
                                 <div class="l">
                                     <span class="tit">Date of birth</span>
-                                    <span class="ans">+225 06 777 788 04</span>
+                                    <span class="ans" id="date">+225 06 777 788 04</span>
                                 </div>
                                 <div class="l">
                                     <span class="tit">location</span>
-                                    <span class="ans">+225 06 777 788 04</span>
+                                    <span class="ans" id="loc">+225 06 777 788 04</span>
                                 </div>
                                 <div class="l">
                                     <span class="tit">Responsiblity</span>
-                                    <span class="ans">+225 06 777 788 04</span>
+                                    <span class="ans" id="resp">+225 06 777 788 04</span>
                                 </div>
                             </div>
                         </div>
@@ -115,15 +115,12 @@
                             <h3>Daily tasks</h3>
                             <div class="card">
                                 <div class="list">
-                                    <div class="elmnt">
-                                        <input type="checkbox" class="chk" name="" id="">
-                                        <span class="task-name">fhgvhbfvdubjvufjvdf vdughvjf</span>
-                                    </div>
+
                                 </div>
                             </div>
                         </div>
                         <div class="payment" id="payment">
-
+                            <h3>Daily tasks</h3>
                         </div>
                     </div>
                     <div class="add-button">
@@ -141,20 +138,20 @@
                     <div class="conten">
                         <iconify-icon icon="akar-icons:cross" onclick="closeForm()"></iconify-icon>
 
-                        <form class="form">
+                        <form class="form" onsubmit="modify()">
                             <div class="line">
                                 <div class="inputBox half">
-                                    <input type="text" name="" id="" required>
+                                    <input type="text" name="" id="fname" required>
                                     <span>First Name</span>
                                 </div>
                                 <div class="inputBox half">
-                                    <input type="text" name="" id="" required>
+                                    <input type="text" name="" id="lname" required>
                                     <span>Last Name</span>
                                 </div>
                             </div>
 
                             <div class="inputBox date">
-                                <input type="date" name="" id="" required>
+                                <input type="date" name="" id="birth" required>
                                 <span>date of birth</span>
                             </div>
                             <div class="inputBox num">
@@ -163,27 +160,27 @@
                             </div>
 
                             <div class="inputBox d">
-                                <select name="" id="" aria-placeholder="Location" required>
+                                <select name="" id="resp" required>
                                     <option value="" disabled selected>Responsiblity</option>
-                                    <option value="">On Ground manager</option>
-                                    <option value="">farmer</option>
-                                    <option value="">Ranch holder</option>
-                                    <option value="">Farm Irigation</option>
-                                    <option value="">Machinery</option>
-                                    <option value="">food safety</option>
+                                    <option value="on ground manager">On Ground manager</option>
+                                    <option value="farmer">farmer</option>
+                                    <option value="ranch holder">Ranch holder</option>
+                                    <option value="farm irigation">Farm Irigation</option>
+                                    <option value="machinery">Machinery</option>
+                                    <option value="food safety">food safety</option>
                                 </select>
                                 <span>Responsiblity</span>
                             </div>
 
                             <div class="inputBox d">
-                                <select name="" id="" aria-placeholder="Location" required>
+                                <select name="" id="loc" required>
                                     <option value="" disabled selected>Location</option>
-                                    <option value="">Abidjan</option>
-                                    <option value="">Yamoussoukro</option>
-                                    <option value="">Bouaké</option>
-                                    <option value="">Korhogo</option>
-                                    <option value="">Odiénné</option>
-                                    <option value="">Man</option>
+                                    <option value="abidjan">Abidjan</option>
+                                    <option value="yamoussoukro">Yamoussoukro</option>
+                                    <option value="bouaké">Bouaké</option>
+                                    <option value="korhogo">Korhogo</option>
+                                    <option value="odiénné">Odiénné</option>
+                                    <option value="man">Man</option>
                                 </select>
                                 <span>Location</span>
                             </div>
@@ -196,7 +193,7 @@
 
             </div>
     </div>
-        <div id="my-add-Form" class="form-popup">
+        <div id="my-add-Form" class="form-popup" onsubmit="addtask(); return false">
             <div class="form-container">
                 <div class="form-builder">
                    
@@ -211,7 +208,7 @@
                             </div>
                             <div class="inputBox">
                                 <!-- <input type="text" class="desc" name="" id="task-desc" required> -->
-                                <textarea class="desc" name="" id="" cols="10" rows="10" required></textarea>
+                                <textarea class="desc" name="" id="desc" cols="10" rows="10" required></textarea>
                                 <span>Task Description</span>
                             </div>
 
@@ -230,6 +227,7 @@
         add = document.querySelector('.add-button')
         b1= document.querySelector('.task')
         b2 = document.querySelector('.pay')
+        const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
         function swapPayment() {
             task.style.display = 'none'
             add.style.display = 'none'
@@ -248,7 +246,14 @@
 
           /* Open the form */
           function openForm() {
+            em = getemp()
             document.getElementById("myForm").style.display = "block";
+            document.getElementById("fname").value = em.firstname
+            document.getElementById("lname").value = em.Lastname
+            document.getElementById("birth").value = em.birthdate
+            document.getElementById("number").value = em.number
+            document.getElementById("loc").value = em.location 
+            document.getElementById("resp").value = em.responsibility
         }
           function openAdd() {
             document.getElementById("my-add-Form").style.display = "block";
@@ -262,6 +267,82 @@
             document.getElementById("my-add-Form").style.display = "none";
         }
 
+        function getemp(){
+            return JSON.parse(localStorage.getItem('employee'))
+        }
+        function getemplist(){
+            return JSON.parse(localStorage.getItem('Employees'))
+        }
+
+
+        function setemp(object){
+            return localStorage.setItem("employee", JSON.stringify(object))
+        }
+        function setemplist(object){
+            emplist = getemplist()
+            emp = getemp()
+            found = emplist.findIndex(e => e.id === emp.id)
+            emplist[found] = object
+            return localStorage.setItem("Employees", JSON.stringify(object))
+
+        }
+
+        function modify() {
+            em = getemp()
+            fname = document.getElementById('fname').value
+            lname = document.getElementById('lname').value
+            birth = document.getElementById('birth').value
+            num = document.getElementById('number').value
+            loc = document.getElementById('loc').value
+            resp = document.getElementById('resp').value
+            em.firstname = fname
+            em.Lastname = lname
+            em.birthdate = birth
+            em.number = num
+            em.location = loc
+            em.responsibility = resp
+            setemp(em)
+            setemplist(em)
+        }
+
+        function addtask() {
+            em = getemp()
+            tname = document.getElementById("task-name").value
+            tdesc = document.getElementById("desc").value
+
+           const task = {
+                task: tname,
+                description: tdesc,
+                completed: False
+            }
+
+            em.tasks.push(task)
+            console.log(em)
+
+        }
+        em = getemp()
+        namebox = document.querySelector('.user-name span')
+        namebox.textContent = em.firstname  + " " + em.Lastname
+        num = document.getElementById('num')
+        num.textContent = "+225 " + em.number
+        date = document.getElementById('date')
+        dateinput = new Date(em.birthdate)
+        const format = `${dateinput.toLocaleString('eng', { month: 'long' })} ${dateinput.getDate()}, ${dateinput.getFullYear()}`;
+        date.textContent = format
+        loc = document.getElementById('loc')
+        loc.textContent = em.location
+        resp = document.getElementById('resp')
+        resp.textContent = em.responsibility
+
+        tasklist = em.tasks
+        list = document.querySelector('.list')
+
+        tasklist.forEach(function (object) {
+
+        let task = document.createElement('div');
+            task.innerHTML = '<div class="elmnt"><input type="checkbox" class="chk" name="" id=""><span class="task-name">object</span></div>';
+            list.appendChild(task);
+        });
     </script>
 </body>
 
