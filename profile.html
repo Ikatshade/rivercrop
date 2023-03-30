@@ -22,7 +22,7 @@
     <style type="text/css" media="print">
         body { visibility: hidden; display: none }
     </style>
-    <div class="container" id="jj">
+    <div class="container">
         <div class="innercontent">
             <nav>
                 <div class="content">
@@ -307,17 +307,19 @@
 
         function addtask() {
             em = getemp()
+            console.log(em)
             tname = document.getElementById("task-name").value
             tdesc = document.getElementById("desc").value
 
            const task = {
                 task: tname,
                 description: tdesc,
-                completed: False
+                completed: false
             }
 
             em.tasks.push(task)
-            console.log(em)
+            setemp(em)
+            setemplist(em)
 
         }
         em = getemp()
