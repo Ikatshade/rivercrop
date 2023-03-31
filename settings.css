@@ -311,19 +311,21 @@ td {
     width: 80%;
     height: 90%;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
-    gap: 5%;
+
+    
 }
 
-/* .form {
-    flex-basis: 90%;
+.form {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    gap: 2rem;
+    height: 80%;
     width: 90%;
-} */
+}
 
 .line {
     display: flex;

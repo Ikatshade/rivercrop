@@ -49,7 +49,6 @@
 
 
      const userList = JSON.parse(localStorage.getItem('userList') )|| []
-     console.log(userList)
 
 
         if(userList.length === 0){
@@ -97,7 +96,7 @@
                 }
 
                 localStorage.setItem("session", JSON.stringify((session)))
-                window.location.replace("/dashboard.html");
+                window.location.replace("dashboard.html");
             }
             else {
                 window.location.reload()

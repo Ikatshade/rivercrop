@@ -17,7 +17,7 @@
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
-    <title>Dashboard</title>
+    <title>Admins</title>
 </head>
 
 <body>
@@ -52,11 +52,12 @@
                 <div class="table-part">
                     <div class="filterline">
                         <div class="t">
-                            <span class="title">All Employees</span>
-                            <span class="exp">Monitor tasks, presence, etc.</span>
+                            <span class="title">All Admins</span>
+                            <span class="exp">Monitor admins</span>
                         </div>
                         <div class="left">
-                            <button id="add-b" onclick="openForm()"><iconify-icon icon="ph:plus-light"></iconify-icon>add
+                            <button id="add-b" onclick="openForm()"><iconify-icon
+                                    icon="ph:plus-light"></iconify-icon>add
                                 admin</button>
                             <span class="search s">
                                 <iconify-icon icon="iconoir:search"></iconify-icon>
@@ -69,10 +70,10 @@
                         <table>
                             <thead>
                                 <tr class="h">
-                                    <th width="25%">Employee</th>
-                                    <th width="15%">Status</th>
-                                    <th width="30%">Carried Out</th>
-                                    <th width="15%">Task Number</th>
+                                    <th width="25%">Admin Name</th>
+                                    <th width="25%">Username</th>
+                                    <th width="30%">Email</th>
+                                    <th width="15%"></th>
                                 </tr>
                             </thead>
 
@@ -85,7 +86,7 @@
                 <div id="myForm" class="form-popup">
                     <div class="form-container">
                         <div class="form-builder">
-                           
+
                             <div class="conten">
                                 <iconify-icon icon="akar-icons:cross" onclick="closeForm()"></iconify-icon>
 
@@ -101,7 +102,7 @@
                                             <span>Last Name</span>
                                         </div>
                                     </div>
-    
+
                                     <div class="inputBox">
                                         <input type="text" name="" id="username" required>
                                         <span>Username</span>
@@ -114,12 +115,14 @@
                                         <input type="password" name="" id="pass" required>
                                         <span>password</span>
                                     </div>
-    
+
 
                                     <input class="btn" type="submit" value="Add Employee">
                                 </form>
+
                             </div>
-                            
+
+
                         </div>
 
                     </div>
@@ -131,19 +134,12 @@
         </div>
     </div>
     <script>
-        const phoneInputField = document.querySelector("#number");
-        // const phoneInput = window.intlTelInput(phoneInputField, {
-        //     initialCountry: "ci",
-
-        //     utilsScript:
-        //         "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
-        // });
 
         add = document.getElementById('add-b')
         admin = document.getElementById('admin')
 
 
-        const currentuser = JSON.parse(localStorage.getItem('session') )
+        const currentuser = JSON.parse(localStorage.getItem('session'))
         console.log(currentuser, currentuser.user_type)
 
         /* Open the form */
@@ -156,38 +152,58 @@
             document.getElementById("myForm").style.display = "none";
         }
 
-        function signout(){
+        function signout() {
             localStorage.removeItem("session")
         }
 
-        function addadmin(){
-        fname = document.getElementById('fName').value
-        lname = document.getElementById('lName').value
-        uname = document.getElementById('username').value
-        email = document.getElementById('email').value
-        pass = document.getElementById('pass').value
-
-        adList = JSON.parse(localStorage.getItem("adminList")) || []
-        users =  JSON.parse(localStorage.getItem('userList'))
-
-        const admin = {
-            firstname : fname,
-            lastname : lname,
-            username : uname,
-            email : email,
-            password : pass,
+        function getadmins() {
+            return JSON.parse(localStorage.getItem('adminList')) || []
         }
-        
-        const user = {
-            user_type: "2",
-            username : uname,
-            password : pass,
+        function getadmin() {
+            return JSON.parse(localStorage.getItem('admin'))
         }
 
-        adList.push(admin)
-        users.push(user)
-        localStorage.setItem("adminList", JSON.stringify((adList)))
-        localStorage.setItem("userList", JSON.stringify((users)))
+        function setemp(object) {
+            return localStorage.setItem("admin", JSON.stringify(object))
+        }
+        function setemplist(object) {
+            emplist = getadmins()
+            emp = getadmin()
+            found = emplist.findIndex(e => e.username === emp.username)
+            emplist[found] = object
+            return localStorage.setItem("adminList", JSON.stringify(emplist))
+
+        }
+
+
+        function addadmin() {
+            fname = document.getElementById('fName').value
+            lname = document.getElementById('lName').value
+            uname = document.getElementById('username').value
+            email = document.getElementById('email').value
+            pass = document.getElementById('pass').value
+
+            adList = JSON.parse(localStorage.getItem("adminList")) || []
+            users = JSON.parse(localStorage.getItem('userList'))
+
+            const admin = {
+                firstname: fname,
+                lastname: lname,
+                username: uname,
+                email: email,
+                password: pass,
+            }
+
+            const user = {
+                user_type: "2",
+                username: uname,
+                password: pass,
+            }
+
+            adList.push(admin)
+            users.push(user)
+            localStorage.setItem("adminList", JSON.stringify((adList)))
+            localStorage.setItem("userList", JSON.stringify((users)))
         }
 
         adList = JSON.parse(localStorage.getItem("adminList")) || []
@@ -199,8 +215,41 @@
             tr.innerHTML = '<td>' + object.firstname + ' ' + object.lastname + '</td>' +
                 '<td>' + object.username + '</td>' +
                 '<td>' + object.email + '</td>' +
-                '<td><iconify-icon icon="ion:pencil-outline"></iconify-icon><iconify-icon icon="mdi:bin"></iconify-icon></td>';
+                '<td class="line-option"><span class="edit"><iconify-icon icon="ion:pencil-outline"></iconify-icon></span><span class="delete"><iconify-icon icon="mdi:bin"></iconify-icon></span></td>';
             table.appendChild(tr);
+            edit = tr.querySelector(".edit")
+            delet = tr.querySelector(".delete")
+            edit.addEventListener("click", function details() {
+                admin = {
+                    user_type: object.user_type,
+                    firstname: object.firstname,
+                    Lastname: object.lastname,
+                    username: object.username,
+                    email: object.email,
+                    password: object.password
+                }
+                localStorage.setItem("admin", JSON.stringify(admin))
+                adSelect = getadmin()
+                openForm()
+                document.getElementById('fName').value = adSelect.firstname
+                document.getElementById('lName').value = adSelect.Lastname
+                document.getElementById('username').value = adSelect.username
+                document.getElementById('email').value = adSelect.email
+                document.getElementById('pass').value = adSelect.password
+                btn = document.querySelector('.btn').value = "Modify Profile"
+                if (btn.value == "Modify Profile"){
+                    document.querySelector(".form").addEventListener("submit", function () {
+                    adSelect.firstname = document.getElementById('fName').value
+                    adSelect.Lastname = document.getElementById('lName').value
+                    adSelect.username = document.getElementById('username').value
+                    adSelect.email = document.getElementById('email').value
+                    adSelect.password = document.getElementById('pass').value
+                    setemp(em)
+                    setemplist(em)
+                })
+                }
+                
+            })
 
         });
 

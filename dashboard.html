@@ -280,7 +280,7 @@
             localStorage.setItem('Employees', JSON.stringify((emplist)))
         }
         function updateProgressBar() {
-            const completedTasks = tasks.filter((task) => task.completed).length;
+            const completedTasks = tasks.filter((task) => task.completed == true).length;
             const progress = (completedTasks / tasks.length) * 100;
             progressBar.style.width = progress + "%";
         }

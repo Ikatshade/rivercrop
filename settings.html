@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="sidebar.css">
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.7/dist/iconify-icon.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400&family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+    <title>settings</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="innercontent">
+
+
+            <nav>
+                <div class="content">
+                    <div class="logo">
+                        <img src="img/R (1).png" alt="">
+                    </div>
+                    <div class="menu">
+                        <a href="dashboard.html" class="clicked"><iconify-icon icon="bi:grid"
+                                rotate="90deg"></iconify-icon></span><span>Dashboard</span></a>
+                        <a href="admin.html" id="admin"><iconify-icon
+                                icon="fluent-mdl2:player-settings"></iconify-icon><span>Admins</span></a>
+                        <a href="report.html"><iconify-icon icon="carbon:report"></iconify-icon><span>Reports</span></a>
+                        <a href="settings.html"><iconify-icon icon="fluent:settings-32-regular"
+                                rotate="90deg"></iconify-icon><span>Settings</span></a>
+                    </div>
+                </div>
+                <div class="logout-b">
+                    <a href="sign.html" onclick="signout()"><iconify-icon icon="material-symbols:output-circle-rounded"
+                            rotate="270deg"></iconify-icon><span>Logout</span></a>
+                </div>
+            </nav>
+
+
+            <div class="right-part">
+                <div class="title">
+                    <span>Settings</span>
+                </div>
+                <div class="corp">
+                    
+                </div>
+                </div>
+
+
+
+                <div id="myForm" class="form-popup">
+                    <div class="form-container">
+                        <div class="form-builder">
+                           
+                            <div class="conten">
+                                <iconify-icon icon="akar-icons:cross" onclick="closeForm()"></iconify-icon>
+
+                                <form class="form" onsubmit="addadmin()">
+
+                                    <div class="line">
+                                        <div class="inputBox half">
+                                            <input type="text" name="" id="fName" required>
+                                            <span>First Name</span>
+                                        </div>
+                                        <div class="inputBox half">
+                                            <input type="text" name="" id="lName" required>
+                                            <span>Last Name</span>
+                                        </div>
+                                    </div>
+    
+                                    <div class="inputBox">
+                                        <input type="text" name="" id="username" required>
+                                        <span>Username</span>
+                                    </div>
+                                    <div class="inputBox ">
+                                        <input type="text" name="" id="email" required>
+                                        <span>email</span>
+                                    </div>
+                                    <div class="inputBox">
+                                        <input type="password" name="" id="pass" required>
+                                        <span>password</span>
+                                    </div>
+    
+
+                                    <input class="btn" type="submit" value="Add Employee">
+                                </form>
+                            </div>
+                            
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+    <script>
+        const phoneInputField = document.querySelector("#number");
+        // const phoneInput = window.intlTelInput(phoneInputField, {
+        //     initialCountry: "ci",
+
+        //     utilsScript:
+        //         "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+        // });
+
+        add = document.getElementById('add-b')
+        admin = document.getElementById('admin')
+
+
+        const currentuser = JSON.parse(localStorage.getItem('session') )
+        console.log(currentuser, currentuser.user_type)
+
+        /* Open the form */
+        function openForm() {
+            document.getElementById("myForm").style.display = "block";
+        }
+
+        /* Close the form */
+        function closeForm() {
+            document.getElementById("myForm").style.display = "none";
+        }
+
+        function signout(){
+            localStorage.removeItem("session")
+        }
+
+        function addadmin(){
+        fname = document.getElementById('fName').value
+        lname = document.getElementById('lName').value
+        uname = document.getElementById('username').value
+        email = document.getElementById('email').value
+        pass = document.getElementById('pass').value
+
+        adList = JSON.parse(localStorage.getItem("adminList")) || []
+        users =  JSON.parse(localStorage.getItem('userList'))
+
+        const admin = {
+            firstname : fname,
+            lastname : lname,
+            username : uname,
+            email : email,
+            password : pass,
+        }
+        
+        const user = {
+            user_type: "2",
+            username : uname,
+            password : pass,
+        }
+
+        adList.push(admin)
+        users.push(user)
+        localStorage.setItem("adminList", JSON.stringify((adList)))
+        localStorage.setItem("userList", JSON.stringify((users)))
+        }
+
+        adList = JSON.parse(localStorage.getItem("adminList")) || []
+        console.log(adList)
+
+        let table = document.getElementById('table-body');
+        adList.forEach(function (object) {
+            var tr = document.createElement('tr');
+            tr.innerHTML = '<td>' + object.firstname + ' ' + object.lastname + '</td>' +
+                '<td>' + object.username + '</td>' +
+                '<td>' + object.email + '</td>' +
+                '<td class="line-option"><span class="edit"><iconify-icon icon="ion:pencil-outline"></iconify-icon></span><span class="delete"><iconify-icon icon="mdi:bin"></iconify-icon></span></td>';
+            table.appendChild(tr);
+
+        });
+
+    </script>
+</body>
+
+</html>

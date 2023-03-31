@@ -291,19 +291,12 @@
 
         function modify() {
             em = getemp()
-            fname = document.getElementById('fname').value
-            lname = document.getElementById('lname').value
-            birth = document.getElementById('birth').value
-            num = document.getElementById('number').value
-            loc = document.getElementById('loc').value
-            resp = document.getElementById('resp').value
-            em.firstname = fname
-            em.lastname = lname
-            em.birthdate = birth
-            em.number = num
-            em.location = loc
-            em.responsibility = resp
-            console.log(fname,lname,birth,num,loc,resp)
+            em.firstname  = document.getElementById('fname').value 
+            em.lastname = document.getElementById('lname').value
+            em.birthdate  = document.getElementById('birth').value
+            em.number = document.getElementById('number').value
+            em.location = document.getElementById('loc').value
+            em.responsibility = document.getElementById('resp').value
             setemp(em)
             setemplist(em)
         }
@@ -356,8 +349,14 @@
             task.innerHTML = '<div class="elmnt"><input type="checkbox" class="chk" name="" id=""><span class="task-name">'+ object.task +'</span></div>';
             list.appendChild(task);
             let chk = task.querySelector('.chk')
-            chk.addEventListener("click", () =>{
-                chk.toggle("completed")
+            chk.addEventListener("change", () =>{
+                if (chk.checked){
+                    object.completed = true
+                    console.log(object)
+                } else{
+                    object.completed = false
+                }
+
 
         })
             
