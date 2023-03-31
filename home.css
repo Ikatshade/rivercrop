@@ -2,6 +2,10 @@
     text-decoration: none;
 }
 
+html{
+    scroll-behavior: smooth;
+    transition: 5s;
+}
 body {
     padding: 0;
     margin: 0;
@@ -60,6 +64,7 @@ img{
 .belly p{
     font-size: 3vmin;
     color: #ffffff;
+    text-align: center;
     font-family: "croissant one";
 }
 .belly a{
@@ -75,5 +80,26 @@ img{
     height:8vh
 }
 .bottom{
+    display: flex;
+    justify-content: center;
     height:100vh;
+    width: 100%;
+}
+.text{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+}
+.text h1{
+    font-size: 6vmin;
+    text-transform: uppercase;
+    font-family: "cormorant upright";
+}
+p{
+    width: 60%;
+    font-size: 1.1rem;
+    text-align: center;
+    font-family: 'montserrat alternates';
 }
