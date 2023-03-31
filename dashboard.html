@@ -214,7 +214,6 @@
 
 
         }
-        console.log(currentuser)
 
         Array.prototype.random = function () {
             return this[Math.floor((Math.random() * this.length))];
@@ -267,8 +266,8 @@
 
             const employee = {
                 id: EmployeeId(),
-                Firstname: fname,
-                Lastname: lname,
+                firstname: fname,
+                lastname: lname,
                 birthdate: birth,
                 number: number,
                 responsibility: resp,
@@ -280,26 +279,30 @@
             emplist.push(employee)
             localStorage.setItem('Employees', JSON.stringify((emplist)))
         }
+        function updateProgressBar() {
+            const completedTasks = tasks.filter((task) => task.completed).length;
+            const progress = (completedTasks / tasks.length) * 100;
+            progressBar.style.width = progress + "%";
+        }
 
 
-
-        emplist = getEmployee()
-        print(emplist)
+        let emplist = getEmployee()
+        console.log(emplist)
 
         let table = document.getElementById('table-body');
         emplist.forEach(function (object) {
             let s
-                if (object.tasks.length === 0){
-                    s = 'no tasks available'
-                } else {
-                    s = object.tasks.length
-                }
+            if (object.tasks.length === 0) {
+                s = 'no tasks available'
+            } else {
+                s = object.tasks.length
+            }
             let tr = document.createElement('tr');
-            tr.innerHTML = '<td width="25%" id ="name">' + object.Firstname + ' ' + object.Lastname + '</td>' +
+            tr.innerHTML = '<td width="25%" id ="name">' + object.firstname + ' ' + object.lastname + '</td>' +
                 '<td width="15%">' + randomPresence() + '</td>' +
                 '<td width="30%"><div class="progress-bar-container"><div class="progress-bar"></div></div></td>' +
                 '<td width="15%">' + s + '</td>';
-                '<td width="15%">' + object.tasks.length + '</td>';
+            '<td width="15%">' + object.tasks.length + '</td>';
             table.appendChild(tr);
             tr.addEventListener("click", function details() {
                 emp = {

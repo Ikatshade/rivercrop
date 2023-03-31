@@ -193,7 +193,7 @@
 
             </div>
     </div>
-        <div id="my-add-Form" class="form-popup" onsubmit="addtask(); return false">
+        <div id="my-add-Form" class="form-popup" onsubmit="addtask()">
             <div class="form-container">
                 <div class="form-builder">
                    
@@ -249,11 +249,13 @@
             em = getemp()
             document.getElementById("myForm").style.display = "block";
             document.getElementById("fname").value = em.firstname
-            document.getElementById("lname").value = em.Lastname
+            document.getElementById("lname").value = em.lastname
             document.getElementById("birth").value = em.birthdate
             document.getElementById("number").value = em.number
             document.getElementById("loc").value = em.location 
             document.getElementById("resp").value = em.responsibility
+            console.log(fname.value,lname.value,birth.value,num.value,loc.value,resp.value)
+
         }
           function openAdd() {
             document.getElementById("my-add-Form").style.display = "block";
@@ -283,7 +285,7 @@
             emp = getemp()
             found = emplist.findIndex(e => e.id === emp.id)
             emplist[found] = object
-            return localStorage.setItem("Employees", JSON.stringify(object))
+            return localStorage.setItem("Employees", JSON.stringify(emplist))
 
         }
 
@@ -296,11 +298,12 @@
             loc = document.getElementById('loc').value
             resp = document.getElementById('resp').value
             em.firstname = fname
-            em.Lastname = lname
+            em.lastname = lname
             em.birthdate = birth
             em.number = num
             em.location = loc
             em.responsibility = resp
+            console.log(fname,lname,birth,num,loc,resp)
             setemp(em)
             setemplist(em)
         }
@@ -322,9 +325,17 @@
             setemplist(em)
 
         }
+
+
+        function complete(event){
+            gettask()
+            setemp(em)
+            setemplist(em)
+            console.log(em)
+        }
         em = getemp()
         namebox = document.querySelector('.user-name span')
-        namebox.textContent = em.firstname  + " " + em.Lastname
+        namebox.textContent = em.firstname  + " " + em.lastname
         num = document.getElementById('num')
         num.textContent = "+225 " + em.number
         date = document.getElementById('date')
@@ -342,9 +353,16 @@
         tasklist.forEach(function (object) {
 
         let task = document.createElement('div');
-            task.innerHTML = '<div class="elmnt"><input type="checkbox" class="chk" name="" id=""><span class="task-name">object</span></div>';
+            task.innerHTML = '<div class="elmnt"><input type="checkbox" class="chk" name="" id=""><span class="task-name">'+ object.task +'</span></div>';
             list.appendChild(task);
+            let chk = task.querySelector('.chk')
+            chk.addEventListener("click", () =>{
+                chk.toggle("completed")
+
+        })
+            
         });
+
     </script>
 </body>
 
