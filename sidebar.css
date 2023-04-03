@@ -5,9 +5,9 @@ nav{
     flex-direction: column;
     background-color: #F2F2F2;
     height: 100%;
-    width: 19vw;
+    width: 20vw;
     nav-left: root;
-    font-size: 1.4rem;
+    font-size: 1.26vw;
     font-family: 'manrope';
 
 }
@@ -27,36 +27,39 @@ nav{
     flex-basis: 35%;
     display: flex;
     justify-content: center;
+    align-items: center;
     flex-direction: column;
-    gap: .5rem;
+    gap: .5vw;
     width: 95%;
 }
 .menu a{
     color: #4C4C4C;
     display: flex;
     align-items: center;
-    gap: .8rem;
-    padding: 1rem 4rem;
+    width: 60%;
+    justify-content: flex-start;
+    gap: .8vw;
+    padding: 1vw 3vw;
 }
 .menu a:hover{
     background-color: #B4CD93;
-    border-radius: .3rem;
+    border-radius: .3vw;
 }
 .clicked{
     background-color: #B4CD93;
-    border-radius: .3rem;
+    border-radius: .3vw;
 }
 .menu a iconify-icon{
-    font-size: 1.9rem;
+    font-size: 1.6vw;
 }
 .logout-b a iconify-icon{
-    font-size: 1.9rem;
+    font-size: 1.6vw;
 }
 .logout-b a{
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: .8rem;
+    gap: .8vw;
     color: #A65959;
 }
 .logout-b {

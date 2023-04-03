@@ -49,38 +49,38 @@ body {
     width: 50%;
     background-color: #FAFAFA;
     border: 1px solid #E6E6E6;
-    border-radius: .25rem;
+    border-radius: .25vw;
 }
 
 .s {
     width: 50%;
-    padding: 0rem .6rem !important;
-    border-radius: .15rem;
+    padding: 0.1rem .6vw !important;
+    border-radius: .15vw;
 
 
 }
 
 .s iconify-icon {
-    font-size: 1rem !important;
+    font-size: 1.2vw !important;
 }
 
 .s input {
     height: 50%;
-    padding: .5rem .5rem !important;
-    font-size: .8rem !important;
+    padding: .5vw .5vw !important;
+    font-size: 1vw !important;
 }
 
 .search iconify-icon {
     color: #4C4C4C;
-    font-size: 1.5rem;
+    font-size: 1.5vw;
 }
 
 input {
-    padding: .8rem .6rem;
+    padding: .8vw .6vw;
     width: 92%;
     color: #4C4C4C;
     font-family: 'manrope';
-    font-size: 1rem;
+    font-size: 1vw;
     border: none;
     background-color: inherit;
     outline: none;
@@ -98,21 +98,21 @@ input {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 2.3rem;
-    height: 2.3rem;
+    width: 2.3vw;
+    height: 2.3vw;
     border-radius: 50%;
     background-color: #F2F2F2;
 
 }
 
 .user iconify-icon {
-    font-size: 1.6rem;
+    font-size: 1.6vw;
 }
 
 .user-details {
     display: flex;
     align-items: center;
-    gap: .5rem
+    gap: .5vw
 }
 
 .details {
@@ -124,18 +124,18 @@ input {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 2.3rem;
-    height: 2.3rem;
+    width: 2.3vw;
+    height: 2.3vw;
     border-radius: 50%;
     background-color: #F2F2F2;
 }
 
 .notif iconify-icon {
-    font-size: 1.6rem;
+    font-size: 1.6vw;
 }
 
 .notif ion-icon {
-    font-size: 1.6rem;
+    font-size: 1.6vw;
 }
 
 .prof {
@@ -146,7 +146,7 @@ input {
     display: flex;
     color: white;
     width: 80%;
-    height: 16vh;
+    height: 17vh;
     justify-content: space-between;
 }
 
@@ -156,16 +156,18 @@ input {
     flex-direction: column;
     align-items: flex-start;
     flex-basis: 30%;
-    border-radius: .3rem;
+    height: 100%;
+    max-height: 17vw;
+    border-radius: .3vw;
     background: linear-gradient(75deg, #6B775A 40%, #905546 40%, #905546 60%, #314E3E 60%, #314E3E 70%, #907644 60%);
 }
 .number{
-    font-size: 5rem;
+    font-size: 4vw;
     margin-left: 3%;
     font-family: 'manrope';
 }
 .desc{
-    font-size: 1.5rem;
+    font-size: 1.3vw;
     margin-left: 3%;
     font-family: 'manrope';
     font-weight: 300;
@@ -177,7 +179,7 @@ input {
     display: flex;
     flex-direction: column;
     width: 90%;
-    gap: 1rem;
+    gap: 1vw;
 }
 
 .filterline {
@@ -189,8 +191,8 @@ input {
 .left {
     display: flex;
     align-items: center;
-    gap: 1rem;
-    width: 35%;
+    gap: 1vw;
+    width: 40%;
 }
 
 .t {
@@ -199,7 +201,7 @@ input {
 }
 
 .title {
-    font-size: 1.2rem;
+    font-size: 1.2vw;
 }
 
 .exp {
@@ -207,19 +209,20 @@ input {
 }
 
 button {
-    font-size: 1rem;
+    font-size: .9vw;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 1.8rem;
-    padding: 1.2rem .6rem;
+    height: 1.8vw;
+    width: 9.5vw;
+    padding: 1.2vw .6vw;
     color: #ffffff;
     font-family: 'manrope';
     font-weight: 200;
     background-color: #427A5B;
     border: none;
-    border-radius: .2rem;
-    gap: .2rem;
+    border-radius: .2vw;
+    gap: .2vw;
     text-transform: capitalize;
 }
 
@@ -227,21 +230,22 @@ button {
     background-color: #ffffff;
     border: 1px solid #E6E6E6;
     color: #4C4C4C;
+    width: 4vw;
 }
 
 button iconify-icon {
-    font-size: 1.2rem;
+    font-size: 1.2vw;
 }
 
 table {
     width: 100%;
-    height: 7rem;
+    height: 8vw;
     border-collapse: collapse;
 
 }
 
 tr {
-    height: 4rem;
+    height: 4vw;
     border-bottom: 1px solid #F2F2F2;
 }
 
@@ -251,6 +255,7 @@ tr:hover {
 
 .h {
     border: none !important;
+    font-size: .9vw;
 }
 
 .h {
@@ -296,14 +301,15 @@ td {
     background-color: #fefefe;
     border: 1px solid #888;
     width: 100%;
-    height: 65%;
-    max-width: 570px;
-    border-radius: 1rem;
+    height: 70%;
+    min-height: 35vh;
+    max-width: 30vw;
+    border-radius: 1vw;
 }
 
 .conten iconify-icon {
     flex-basis: 10%;
-    font-size: 2rem;
+    font-size: 2vw;
     width: 100%;
 }
 
@@ -323,7 +329,7 @@ td {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    gap: 2rem;
+    gap: 2vw;
     height: 80%;
     width: 90%;
 }
@@ -340,7 +346,7 @@ td {
     flex-basis: 48%;
 }
 .half input{
-    padding:.9rem .4rem !important;
+    padding:.9vw .4vw !important;
 
 }
 
@@ -351,19 +357,19 @@ td {
 
 .inputBox input {
     width: 93%;
-    padding: .9rem;
+    padding: .9vw;
     border: 1px solid #427A5B;
-    border-radius: .25rem;
-    font-size: 1rem;
+    border-radius: .25vw;
+    font-size: 1vw;
 }
 
 .inputBox select {
     width: 100% !important;
-    padding: .9rem;
+    padding: .9vw;
     outline: none;
     border: 1px solid #427A5B;
-    border-radius: .25rem;
-    font-size: 1rem;
+    border-radius: .25vw;
+    font-size: 1vw;
 
 }
 
@@ -371,11 +377,11 @@ td {
     position: absolute;
     left: 0;
     top: 0;
-    padding: 1rem;
+    padding: 1vw;
     color: #666666;
     transition: .5s;
     text-transform: capitalize;
-    font-size: 1rem;
+    font-size: 1vw;
     pointer-events: none;
 
 }
@@ -403,10 +409,10 @@ td {
 .inputBox input:focus~span {
     color: #427A5B;
     transform: translateX(10px) translateY(-7px);
-    font-size: 0.65em;
-    padding: 0 10px;
+    font-size: 0.65vw;
+    padding: 0 0.625vw;
     background-color: #FFF;
-    letter-spacing: .2em;
+    letter-spacing: .2vw;
 }
 
 .inputBox select:valid~span,
